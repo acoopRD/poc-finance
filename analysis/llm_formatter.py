@@ -11,6 +11,8 @@ def format_llm_analysis(market_data: Dict, symbol_config: Dict) -> Dict:
     news_sentiment = market_data.get('news_sentiment', {})
     
     return {
+        "analysis_version": "1.0",
+        "timestamp": datetime.now().isoformat(),
         "symbol": symbol_config.get('futures_symbol') or symbol_config.get('perp_symbol'),
         "market_context": {
             "price_action": {
@@ -36,7 +38,8 @@ def format_llm_analysis(market_data: Dict, symbol_config: Dict) -> Dict:
             "volatility_metrics": {
                 "volatility_index": technical_data.get("volatility", {}).get("volatility_index"),
                 "price_range": technical_data.get("volatility", {}).get("price_range")
-            }
+            },
+            "abcd_pattern_detection": technical_data.get("abcde_pattern", False)
         },
         "market_dynamics": {
             "liquidity": {
@@ -71,6 +74,5 @@ def format_llm_analysis(market_data: Dict, symbol_config: Dict) -> Dict:
             "price_decimals": symbol_config['price_decimals'],
             "has_futures": bool(symbol_config['futures_symbol']),
             "has_perpetual": bool(symbol_config['perp_symbol'])
-        },
-        "timestamp": datetime.now().isoformat()
+        }
     }

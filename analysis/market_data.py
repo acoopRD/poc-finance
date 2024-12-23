@@ -1,7 +1,15 @@
 from typing import Dict, List, Optional
 import json
 from datetime import datetime, timedelta
-from analysis.technical import calculate_rsi, calculate_macd, calculate_volatility, detect_trend
+from .technical import (
+    calculate_rsi,
+    calculate_macd,
+    calculate_volatility,
+    detect_trend,
+    detect_abcde_pattern
+)
+
+import logging
 
 def get_historical_data(client, symbol: str) -> List[float]:
     """Get and process historical price data"""
@@ -10,7 +18,7 @@ def get_historical_data(client, symbol: str) -> List[float]:
         historical_prices = client.get_market_price(symbol, since=since)
         return process_historical_prices(historical_prices)
     except Exception as e:
-        print(f"Error getting historical data for {symbol}: {str(e)}")
+        logging.warning(f"Error getting historical data for {symbol}: {str(e)}")
         return []
 
 def analyze_orderbook(orderbook: Dict) -> Dict:
@@ -99,7 +107,8 @@ def get_market_data(client, symbol: str) -> Dict:
             "rsi": calculate_rsi(price_data),
             "macd": calculate_macd(price_data),
             "volatility": calculate_volatility(price_data),
-            "trend": detect_trend(price_data)
+            "trend": detect_trend(price_data),
+            "abcde_pattern": detect_abcde_pattern(price_data)
         }
         
         orderbook_analysis = analyze_orderbook(orderbook)
@@ -113,5 +122,5 @@ def get_market_data(client, symbol: str) -> Dict:
             "liquidity": liquidity_analysis
         }
     except Exception as e:
-        print(f"Error getting market data for {symbol}: {str(e)}")
+        logging.error(f"Error getting market data for {symbol}: {str(e)}")
         return {}

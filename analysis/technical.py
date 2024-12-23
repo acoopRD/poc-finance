@@ -102,3 +102,15 @@ def calculate_moving_average(prices: List[float], periods: int = 50) -> float:
     if len(prices) < periods:
         return 0
     return sum(prices[-periods:]) / periods
+
+def detect_abcde_pattern(prices: List[float]) -> bool:
+    """
+    Detect a hypothetical ABCDE pattern in the price list.
+    Returns True if detected, False otherwise.
+    """
+    # This is a placeholder logic; replace with real pattern detection
+    if len(prices) < 5:
+        return False
+    # Minimal example: checks if last 5 prices are in ascending order
+    last_five = prices[-5:]
+    return sorted(last_five) == last_five

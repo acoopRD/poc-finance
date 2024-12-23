@@ -1,4 +1,5 @@
 import json
+import logging
 from datetime import datetime
 from kraken_client_factory import create_futures_client
 from analysis.market_data import get_market_data
@@ -6,6 +7,8 @@ from analysis.llm_formatter import format_llm_analysis
 from analysis.news import fetch_news, analyze_sentiment
 from analysis.strategies import bollinger_band_strategy, moving_average_crossover_strategy
 from config.symbols import get_symbol_config, SUPPORTED_SYMBOLS
+
+logging.basicConfig(level=logging.INFO)
 
 def analyze_market(client, symbol: str):
     """Analyze market for a specific symbol"""
@@ -40,6 +43,7 @@ def analyze_market(client, symbol: str):
         return analysis
         
     except Exception as e:
+        logging.error(f"Error analyzing market for {symbol}: {str(e)}")
         return {"error": str(e), "symbol": symbol, "timestamp": datetime.now().isoformat()}
 
 def main():
@@ -48,7 +52,8 @@ def main():
     # Analyze all supported symbols
     analyses = {}
     for symbol in SUPPORTED_SYMBOLS.keys():
-        print(f"\n=== {symbol} Market Analysis ===")
+        print(f"\n=== {symbol} Market Analysis ===")  # Restored header
+        logging.info(f"Analyzing symbol: {symbol}")
         analysis = analyze_market(client, symbol)
         print(json.dumps(analysis, indent=2))
         analyses[symbol] = analysis
