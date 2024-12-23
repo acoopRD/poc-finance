@@ -1,48 +1,61 @@
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from kraken_client_factory import create_futures_client
-from analysis.technical import calculate_rsi, calculate_macd, calculate_volatility, detect_trend
-from analysis.market_data import analyze_orderbook, analyze_liquidity, process_historical_prices
+from analysis.market_data import get_market_data
 from analysis.llm_formatter import format_llm_analysis
+from analysis.news import fetch_news, analyze_sentiment
+from analysis.strategies import bollinger_band_strategy, moving_average_crossover_strategy
+from config.symbols import get_symbol_config, SUPPORTED_SYMBOLS
 
-def get_market_analysis(client):
-    """Get comprehensive market analysis data"""
+def analyze_market(client, symbol: str):
+    """Analyze market for a specific symbol"""
+    symbol_config = get_symbol_config(symbol)
+    if not symbol_config:
+        return {"error": f"Unsupported symbol: {symbol}"}
+    
     try:
-        # Fetch market data
-        orderbook = json.loads(client.get_orderbook('PI_XBTUSD'))
-        all_tickers = json.loads(client.get_tickers())
-        btc_ticker = next((t for t in all_tickers.get('tickers', []) 
-                       if t.get('symbol') in ['PI_XBTUSD', 'PF_XBTUSD']), {})
+        # Get market data for symbol
+        market_data = get_market_data(
+            client, 
+            symbol_config['futures_symbol'] or symbol_config['perp_symbol']
+        )
         
-        # Get historical data
-        since = int((datetime.now() - timedelta(days=1)).timestamp() * 1000)
-        historical_prices = client.get_market_price('PI_XBTUSD', since=since)
-        price_data = process_historical_prices(historical_prices)
+        # Fetch and analyze news
+        news_articles = fetch_news(symbol)
+        sentiment = analyze_sentiment(news_articles) if news_articles else {"positive": 0, "negative": 0, "neutral": 0}
         
-        # Calculate technical indicators
-        technical_data = {
-            "rsi": calculate_rsi(price_data),
-            "macd": calculate_macd(price_data),
-            "volatility": calculate_volatility(price_data),
-            "trend": detect_trend(price_data)
-        }
-        
-        # Analyze market structure
-        orderbook_analysis = {
-            **analyze_orderbook(orderbook),
-            **analyze_liquidity(orderbook)
-        }
+        # Apply advanced trading strategies
+        bollinger_signal = bollinger_band_strategy(market_data["technical"])
+        ma_crossover_signal = moving_average_crossover_strategy(market_data["technical"])
         
         # Format for LLM consumption
-        return format_llm_analysis(btc_ticker, technical_data, orderbook_analysis)
+        analysis = format_llm_analysis(market_data, symbol_config)
+        analysis["news_sentiment"] = sentiment
+        analysis["news_articles"] = news_articles[:5]  # Include top 5 news articles
+        analysis["trading_strategies"] = {
+            "bollinger_band_signal": bollinger_signal,
+            "ma_crossover_signal": ma_crossover_signal
+        }
+        
+        return analysis
         
     except Exception as e:
-        return {"error": str(e), "timestamp": datetime.now().isoformat()}
+        return {"error": str(e), "symbol": symbol, "timestamp": datetime.now().isoformat()}
 
 def main():
     client = create_futures_client()
-    analysis = get_market_analysis(client)
-    print(json.dumps(analysis, indent=2))
+    
+    # Analyze all supported symbols
+    analyses = {}
+    for symbol in SUPPORTED_SYMBOLS.keys():
+        print(f"\n=== {symbol} Market Analysis ===")
+        analysis = analyze_market(client, symbol)
+        print(json.dumps(analysis, indent=2))
+        analyses[symbol] = analysis
+    
+    # Example of analyzing a single symbol
+    # analysis = analyze_market(client, "BTC")
+    # print(json.dumps(analysis, indent=2))
 
 if __name__ == "__main__":
     main()

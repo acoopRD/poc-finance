@@ -1,5 +1,17 @@
 from typing import Dict, List, Optional
 import json
+from datetime import datetime, timedelta
+from analysis.technical import calculate_rsi, calculate_macd, calculate_volatility, detect_trend
+
+def get_historical_data(client, symbol: str) -> List[float]:
+    """Get and process historical price data"""
+    try:
+        since = int((datetime.now() - timedelta(days=1)).timestamp() * 1000)
+        historical_prices = client.get_market_price(symbol, since=since)
+        return process_historical_prices(historical_prices)
+    except Exception as e:
+        print(f"Error getting historical data for {symbol}: {str(e)}")
+        return []
 
 def analyze_orderbook(orderbook: Dict) -> Dict:
     """Analyze order book for market sentiment"""
@@ -69,3 +81,37 @@ def process_historical_prices(historical_data: List) -> List[float]:
         return prices
     except Exception:
         return []
+
+def get_market_data(client, symbol: str) -> Dict:
+    """Get comprehensive market data for a symbol"""
+    try:
+        # Get market data
+        orderbook = json.loads(client.get_orderbook(symbol))
+        all_tickers = json.loads(client.get_tickers())
+        ticker = next((t for t in all_tickers.get('tickers', []) 
+                    if t.get('symbol') == symbol), {})
+        
+        # Get historical data
+        price_data = get_historical_data(client, symbol)
+        
+        # Calculate technical indicators
+        technical_data = {
+            "rsi": calculate_rsi(price_data),
+            "macd": calculate_macd(price_data),
+            "volatility": calculate_volatility(price_data),
+            "trend": detect_trend(price_data)
+        }
+        
+        orderbook_analysis = analyze_orderbook(orderbook)
+        liquidity_analysis = analyze_liquidity(orderbook)
+        
+        return {
+            "ticker": ticker,
+            "orderbook": orderbook,
+            "technical": technical_data,
+            "orderbook_analysis": orderbook_analysis,
+            "liquidity": liquidity_analysis
+        }
+    except Exception as e:
+        print(f"Error getting market data for {symbol}: {str(e)}")
+        return {}

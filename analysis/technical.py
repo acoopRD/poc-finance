@@ -84,3 +84,21 @@ def detect_trend(prices: List[float]) -> Dict:
             "direction": "neutral",
             "strength": 0
         }
+
+def calculate_bollinger_bands(prices: List[float], periods: int = 20, num_std_dev: int = 2) -> Dict:
+    """Calculate Bollinger Bands"""
+    if len(prices) < periods:
+        return {"upper_band": 0, "lower_band": 0, "middle_band": 0}
+    
+    sma = sum(prices[-periods:]) / periods
+    std_dev = statistics.stdev(prices[-periods:])
+    upper_band = sma + (num_std_dev * std_dev)
+    lower_band = sma - (num_std_dev * std_dev)
+    
+    return {"upper_band": upper_band, "lower_band": lower_band, "middle_band": sma}
+
+def calculate_moving_average(prices: List[float], periods: int = 50) -> float:
+    """Calculate Simple Moving Average"""
+    if len(prices) < periods:
+        return 0
+    return sum(prices[-periods:]) / periods
