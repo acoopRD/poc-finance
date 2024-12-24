@@ -1,0 +1,646 @@
+{
+  "PF_ARBUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:47.153246",
+    "symbol": "PF_ARBUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 0.8006,
+        "24h_high": 0.8108,
+        "24h_low": 0.7544,
+        "24h_volume": 4662,
+        "price_change_24h": 0.0010000000000000009
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            0.8007,
+            250
+          ],
+          [
+            0.8006,
+            250
+          ],
+          [
+            0.8005,
+            250
+          ]
+        ],
+        "top_asks": [
+          [
+            0.8009,
+            250
+          ],
+          [
+            0.801,
+            250
+          ],
+          [
+            0.8011,
+            250
+          ]
+        ],
+        "order_imbalance": 1.0
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 46.728023486118424,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.006835310086480716
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.002823991300590681,
+        "price_range": 0.00804214963000005
+      },
+      "abcd_pattern_detection": false
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 2000.0,
+        "ask_depth_total": 2000.0,
+        "spread_percentage": 0.00024978144123888844
+      },
+      "market_sentiment": {
+        "funding_rate": 6.82375167294e-07,
+        "open_interest": 6452.0,
+        "buy_pressure": 1.0,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "high"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 1,
+      "price_decimals": 2,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PF_SHIBUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:45.705861",
+    "symbol": "PF_SHIBUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 2.2479e-05,
+        "24h_high": 2.2726e-05,
+        "24h_low": 2.2417e-05,
+        "24h_volume": 9758000,
+        "price_change_24h": 3.999999999999962e-08
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            2.2481e-05,
+            8896000
+          ],
+          [
+            2.2478e-05,
+            8896000
+          ],
+          [
+            2.2476e-05,
+            8896000
+          ]
+        ],
+        "top_asks": [
+          [
+            2.2485e-05,
+            8896000
+          ],
+          [
+            2.2487e-05,
+            8896000
+          ],
+          [
+            2.249e-05,
+            8896000
+          ]
+        ],
+        "order_imbalance": 1.0
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 51.24871707149657,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.004101589521639839
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.0020787009799773976,
+        "price_range": 1.6682999999999854e-07
+      },
+      "abcd_pattern_detection": false
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 71168000.0,
+        "ask_depth_total": 71168000.0,
+        "spread_percentage": 0.00017792802811256644
+      },
+      "market_sentiment": {
+        "funding_rate": 9.485008e-12,
+        "open_interest": 44935000.0,
+        "buy_pressure": 1.0,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "high"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 100000,
+      "price_decimals": 8,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PI_ETHUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:48.393603",
+    "symbol": "PI_ETHUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 3416.255,
+        "24h_high": 3462.05,
+        "24h_low": 3216,
+        "24h_volume": 146036,
+        "price_change_24h": -1.2449999999998909
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            3416.1,
+            18
+          ],
+          [
+            3415.75,
+            200
+          ],
+          [
+            3415.4,
+            200
+          ]
+        ],
+        "top_asks": [
+          [
+            3416.425,
+            200
+          ],
+          [
+            3416.75,
+            1
+          ],
+          [
+            3416.775,
+            200
+          ]
+        ],
+        "order_imbalance": 0.9820466786355476
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 32.15639884796663,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.0026825267629332953
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.001362335484000861,
+        "price_range": 17.128187955099747
+      },
+      "abcd_pattern_detection": true
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 7158.0,
+        "ask_depth_total": 1755.0,
+        "spread_percentage": 9.5137730160204e-05
+      },
+      "market_sentiment": {
+        "funding_rate": -1.03214028e-10,
+        "open_interest": 162520.0,
+        "buy_pressure": 0.9820466786355476,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "normal"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 0.01,
+      "price_decimals": 2,
+      "has_futures": false,
+      "has_perpetual": true
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PF_ALGOUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:51.615797",
+    "symbol": "PF_ALGOUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 0.37573,
+        "24h_high": 0.37546,
+        "24h_low": 0.35604,
+        "24h_volume": 17935,
+        "price_change_24h": 0.0019799999999999818
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            0.37569,
+            532
+          ],
+          [
+            0.37565,
+            532
+          ],
+          [
+            0.37562,
+            532
+          ]
+        ],
+        "top_asks": [
+          [
+            0.37577,
+            532
+          ],
+          [
+            0.3758,
+            532
+          ],
+          [
+            0.37584,
+            532
+          ]
+        ],
+        "order_imbalance": 0.13774800142408647
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 47.41379310344857,
+        "macd_histogram": 0.0,
+        "trend_direction": "bullish",
+        "trend_strength": 0.0018231176642801777
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.0017851750197944072,
+        "price_range": 0.0027100000000000457
+      },
+      "abcd_pattern_detection": true
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 4256.0,
+        "ask_depth_total": 30897.0,
+        "spread_percentage": 0.0002129415209347307
+      },
+      "market_sentiment": {
+        "funding_rate": -8.89744387794e-07,
+        "open_interest": 438141.0,
+        "buy_pressure": 0.13774800142408647,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bullish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "normal"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 10,
+      "price_decimals": 4,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PI_XBTUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:53.145729",
+    "symbol": "PI_XBTUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 94420,
+        "24h_high": 96146.5,
+        "24h_low": 93997.5,
+        "24h_volume": 9702,
+        "price_change_24h": 422.5
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            94407,
+            200
+          ],
+          [
+            94397.5,
+            200
+          ],
+          [
+            94388,
+            200
+          ]
+        ],
+        "top_asks": [
+          [
+            94425.5,
+            200
+          ],
+          [
+            94435,
+            200
+          ],
+          [
+            94444.5,
+            200
+          ]
+        ],
+        "order_imbalance": 19.72
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 42.555605427621124,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.002113095602223155
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.0011568077787696119,
+        "price_range": 397.1916363416094
+      },
+      "abcd_pattern_detection": false
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 58768.0,
+        "ask_depth_total": 1600.0,
+        "spread_percentage": 0.0001959600453356213
+      },
+      "market_sentiment": {
+        "funding_rate": -7.70102e-13,
+        "open_interest": 450122.0,
+        "buy_pressure": 19.72,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "normal"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 0.001,
+      "price_decimals": 1,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PF_XRPUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T17:04:49.999494",
+    "symbol": "PF_XRPUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 2.25308,
+        "24h_high": 2.27,
+        "24h_low": 2.15314,
+        "24h_volume": 60866,
+        "price_change_24h": -0.006829999999999892
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            2.25285,
+            89
+          ],
+          [
+            2.25263,
+            89
+          ],
+          [
+            2.2524,
+            89
+          ]
+        ],
+        "top_asks": [
+          [
+            2.25331,
+            89
+          ],
+          [
+            2.25353,
+            89
+          ],
+          [
+            2.25376,
+            89
+          ]
+        ],
+        "order_imbalance": 5455.428882833788
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 39.860748476934795,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.0018330463188170906
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.0017311407060392936,
+        "price_range": 0.014819999999999833
+      },
+      "abcd_pattern_detection": true
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 10010712.0,
+        "ask_depth_total": 1835.0,
+        "spread_percentage": 0.0002041858090862263
+      },
+      "market_sentiment": {
+        "funding_rate": -3.430023301834e-06,
+        "open_interest": 415964.0,
+        "buy_pressure": 5455.428882833788,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "normal"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 10,
+      "price_decimals": 4,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  },
+  "PF_XLMUSD": {
+    "analysis_version": "1.0",
+    "timestamp": "2024-12-23T13:07:12.550586",
+    "symbol": "PF_XLMUSD",
+    "market_context": {
+      "price_action": {
+        "current_price": 0.37226,
+        "24h_high": 0.36371,
+        "24h_low": 0.35249,
+        "24h_volume": 9209,
+        "price_change_24h": 0.008550000000000002
+      },
+      "market_depth": {
+        "top_bids": [
+          [
+            0.3721,
+            537
+          ],
+          [
+            0.37207,
+            537
+          ],
+          [
+            0.37203,
+            537
+          ]
+        ],
+        "top_asks": [
+          [
+            0.37218,
+            537
+          ],
+          [
+            0.37222,
+            537
+          ],
+          [
+            0.37225,
+            537
+          ]
+        ],
+        "order_imbalance": 1.0
+      }
+    },
+    "technical_analysis": {
+      "momentum_indicators": {
+        "rsi": 48.16955684007697,
+        "macd_histogram": 0.0,
+        "trend_direction": "bearish",
+        "trend_strength": 0.023491961155659435
+      },
+      "volatility_metrics": {
+        "volatility_index": 0.008006904945456432,
+        "price_range": 0.009275000000000033
+      },
+      "abcd_pattern_detection": true
+    },
+    "market_dynamics": {
+      "liquidity": {
+        "bid_depth_total": 4296.0,
+        "ask_depth_total": 4296.0,
+        "spread_percentage": 0.00021499596882565037
+      },
+      "market_sentiment": {
+        "funding_rate": -1.98723527222e-07,
+        "open_interest": 31384.0,
+        "buy_pressure": 1.0,
+        "news_sentiment": 0
+      }
+    },
+    "trading_signals": {
+      "primary_indicators": {
+        "rsi_signal": "neutral",
+        "macd_signal": "neutral",
+        "trend_signal": "bearish"
+      },
+      "market_conditions": {
+        "liquidity_state": "high",
+        "volatility_state": "high"
+      }
+    },
+    "symbol_specific": {
+      "min_trade_size": 10,
+      "price_decimals": 4,
+      "has_futures": true,
+      "has_perpetual": false
+    },
+    "trading_strategies": {
+      "bollinger_band_signal": "hold",
+      "ma_crossover_signal": "hold"
+    }
+  }
+}

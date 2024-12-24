@@ -1,3 +1,4 @@
 kraken_sdk
 aiohttp
 requests
+tinydb
