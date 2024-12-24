@@ -13,7 +13,7 @@ from tinydb import TinyDB, Query
 
 logging.basicConfig(level=logging.INFO)
 
-db = TinyDB('trading_data.json')
+db = create_db('trading_data.json')
 
 def fetch_tickers(client):
     """Fetch all tickers from the client"""
